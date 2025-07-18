@@ -11,7 +11,7 @@ const App = () => {
   const [over, setOver]=useState(0);
   
 useEffect(()=>{
-  if(balls>6){
+  if(balls>=6){
     setOver(over+1);
     setBalls(0);
   }
@@ -22,6 +22,7 @@ setBalls(balls+1)
 }
 const wicketh=(wicke)=>{
   setWicket(wicket+1);
+  setBalls(balls+1);
 }
 const handleRefresh=()=>{
 setBalls(0);
