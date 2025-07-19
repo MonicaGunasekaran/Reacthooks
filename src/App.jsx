@@ -80,7 +80,7 @@ const App = () => {
           <h3 className="text-xl mt-3">Final Scorecard🏏:</h3>
           <p className="text-lg mt-1">Total Runs: {score}</p>
           <p className="text-lg">Total Wickets: {wicket}</p>
-          <p className="text-lg">Total Balls: {balls}</p>
+          <p className="text-lg">Total Balls: {balls*over}</p>
           <p className="text-lg">Total Overs: {over}</p>
           <button className="mt-4 bg-blue-700 text-white px-4 py-2 rounded" onClick={handleRefresh}>Start New Match</button>
         </div>
