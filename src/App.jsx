@@ -10,12 +10,17 @@ const App = () => {
   const [wicket, setWicket] = useState(0);
   const [balls, setBalls] = useState(0);
   const [over, setOver] = useState(0);
+  const [totalBalls,setTotalBalls]=useState(0);
   const [isGameOver, setIsGameOver] = useState(false); 
 
   useEffect(() => {
     if (balls >= 6) {
+      setTotalBalls((prev)=>
+        prev+balls
+      )
       setOver((prev) => prev + 1);
       setBalls(0);
+      
     }
   }, [balls]);
 
@@ -38,10 +43,10 @@ const App = () => {
     setOver(0);
     setScore(0);
     setWicket(0);
+    setTotalBalls(0);
     setIsGameOver(false);
   };
 
-  // 👇 Show final scorecard if wickets reach 10
   useEffect(() => {
     if (wicket >= 10) {
       setIsGameOver(true);
@@ -80,7 +85,7 @@ const App = () => {
           <h3 className="text-xl mt-3">Final Scorecard🏏:</h3>
           <p className="text-lg mt-1">Total Runs: {score}</p>
           <p className="text-lg">Total Wickets: {wicket}</p>
-          <p className="text-lg">Total Balls: {balls*over}</p>
+          <p className="text-lg">Total Balls: {totalBalls+balls}</p>
           <p className="text-lg">Total Overs: {over}</p>
           <button className="mt-4 bg-blue-700 text-white px-4 py-2 rounded" onClick={handleRefresh}>Start New Match</button>
         </div>
